@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Signing in · Momentum Tasks</title>
+  <style>
+    body { font: 16px/1.5 Roboto, system-ui, sans-serif; margin: 0; display: grid; place-items: center; min-height: 100vh; background: #FEF7FF; color: #1D1B20; }
+    @media (prefers-color-scheme: dark) { body { background: #141218; color: #E6E0E9; } }
+  </style>
+</head>
+<body>
+  <main><p role="status">Finishing sign-in… You can close this window if it stays open.</p></main>
+  <script>
+    // Hand the authorization response back to the app window, then close.
+    // Only the query string is passed, and only to this same origin.
+    const data = { type: 'ms-auth', search: location.search };
+    try { new BroadcastChannel('momentum-auth').postMessage(data); } catch (e) { /* unsupported */ }
+    try { if (window.opener) window.opener.postMessage(data, location.origin); } catch (e) { /* opener gone */ }
+    setTimeout(() => window.close(), 400);
+  </script>
+</body>
+</html>

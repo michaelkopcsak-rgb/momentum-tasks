@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Momentum Tasks</title>
+  <meta name="theme-color" content="#FEF7FF" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#141218" media="(prefers-color-scheme: dark)" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0..1,0" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=4" />
+</head>
+<body>
+  <div class="app">
+    <header class="top-bar">
+      <h1 id="title" class="title-large" tabindex="-1">Tasks</h1>
+      <div class="top-actions">
+        <button class="icon-btn" data-action="sync" id="syncBtn" aria-label="Sync">
+          <span class="ms" aria-hidden="true">sync</span>
+        </button>
+      </div>
+    </header>
+
+    <main id="view" tabindex="-1" aria-live="off"></main>
+
+    <button class="fab" data-action="new-task" id="fab" aria-label="New task">
+      <span class="ms" aria-hidden="true">add</span>
+    </button>
+
+    <nav class="nav-bar" aria-label="Main">
+      <button data-nav="tasks"><span class="pill"><span class="ms" aria-hidden="true">checklist</span></span><span class="label">Tasks</span></button>
+      <button data-nav="history"><span class="pill"><span class="ms" aria-hidden="true">history</span></span><span class="label">History</span></button>
+      <button data-nav="momentum"><span class="pill"><span class="ms" aria-hidden="true">local_fire_department</span></span><span class="label">Momentum</span></button>
+      <button data-nav="settings"><span class="pill"><span class="ms" aria-hidden="true">settings</span></span><span class="label">Settings</span></button>
+    </nav>
+  </div>
+
+  <div id="scrim" class="scrim" data-action="close-sheet" aria-hidden="true" hidden></div>
+  <section id="sheet" class="sheet" role="dialog" aria-modal="true" hidden></section>
+  <div id="snackbar" class="snackbar" role="status" aria-live="polite" hidden></div>
+
+  <script type="module" src="js/app.js?v=4"></script>
+</body>
+</html>
